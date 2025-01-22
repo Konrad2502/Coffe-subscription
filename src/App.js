@@ -1,9 +1,15 @@
+import Container from "./components/Container/Container";
+import Nav from "./components/Nav/Nav";
+import Home from "./components/Home/Home";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Coffe subscription</h1>
-    </div>
+    <Container>
+      <Nav/>
+      <Home/>
+      <Footer/>
+    </Container>
   );
 }
 

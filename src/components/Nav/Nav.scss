@@ -1,0 +1,41 @@
+@import '../../styles/settings';
+
+.nav {
+    padding: 30px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__logo {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    &-img {
+        width: 30px;
+        height: 30px;
+        
+    }
+    &-title {
+        @include title-h3;
+    }
+}
+
+.nav__list {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    &-item {
+        list-style: none;
+        font-size: 12px;
+        text-transform: uppercase;
+        color: $grey;
+        font-weight: 600;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: color 0.3s ease-in; 
+        &:hover {
+            color: black;
+        }
+    }
+}

@@ -1,0 +1,55 @@
+@import '../../styles/settings';
+
+.footer {
+    padding: 30px 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $dark-grey-blue;
+    color: #fff;
+}
+
+.footer__logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    &-img {
+        width: 30px;
+        height: 30px;
+    }
+    &-title {
+        @include title-h4;
+        color: #fff;
+    }
+}
+
+.footer__list {
+    display: flex;
+    gap: 35px;
+    margin-right: 300px;
+    &-item {
+        text-transform: uppercase;
+        font-weight: 600;
+        cursor: pointer;
+        color: $grey;
+        transition: color 0.3s ease-in;
+        &:hover {
+            color: #fff;
+        }
+    }
+}
+
+.footer__icons {
+    display: flex;
+    gap: 20px;
+    &-item {
+        font-size: 20px;
+        cursor: pointer;
+        transition: color 0.3s ease-in;
+        &:hover {
+            color: $pale-orange
+        }
+
+    }
+}
+
