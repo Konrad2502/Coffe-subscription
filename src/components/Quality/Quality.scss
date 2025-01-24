@@ -1,0 +1,46 @@
+@import '../../styles/settings';
+
+.quality {
+    position: relative;
+    height: 560px;
+    margin: 200px auto;
+   
+}
+
+.quality__content {
+    display: flex;
+    flex-direction: column;
+    background-color: $dark-grey-blue;
+    height: 80%;
+    padding: 0 60px;
+    gap: 30px;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 10px;
+   
+    &-title {
+        @include title-h2;
+        color: #fff;
+        width: 600px;
+    }
+    &-description {
+        font-size: 15px;
+        color: $grey;
+        width: 500px;
+    }
+}
+
+.quality__picture {
+    height: 80%;
+    position: absolute;
+    top: 0;
+    right: 60px;
+    &-img {
+        height: 100%;
+        border-radius: 10px;
+        
+    }
+}

@@ -1,0 +1,29 @@
+@import '../../styles/settings';
+
+.about-header {
+    background: url('../../../public/assets/about/desktop/image-hero-whitecup.jpg');
+    background-size: cover;
+    height: 450px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-header__content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    color: #fff;
+    width: 1120px;
+    &-title {
+        @include title-h1;
+        color:#fff;
+        width: 500px;
+    }
+    &-description {
+        font-size: 15px;
+        width: 400px;
+        color: #fff;
+    }
+}
