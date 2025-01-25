@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './AboutHeader.scss'
 
 export default function AboutHeader() {
   return (

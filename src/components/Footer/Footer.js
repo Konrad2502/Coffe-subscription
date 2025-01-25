@@ -2,6 +2,8 @@ import React from 'react';
 import './Footer.scss';
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 import Icon from '../../assets/icon-coffee-bean.svg';
+import { Link } from 'react-router-dom';
+
 
 export default function Footer() {
   return (
@@ -11,8 +13,8 @@ export default function Footer() {
             <h4 className="footer__logo-title">cofferoaster</h4>
         </div>
         <div className="footer__list">
-            <div className="footer__list-item">Home</div>
-            <div className="footer__list-item">About us</div>
+            <Link to='/' className="footer__list-item">Home</Link>
+            <Link to='/about' className="footer__list-item">About us</Link>
             <div className="footer__list-item">Create your plan</div>
         </div>
         <div className="footer__icons">
