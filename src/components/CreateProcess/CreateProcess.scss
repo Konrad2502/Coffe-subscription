@@ -1,0 +1,60 @@
+@import '../../styles/settings';
+
+.create-process {
+    background-color: $dark-grey-blue;
+    margin: 200px 0;
+    height: 650px;
+    border-radius: 10px;
+    gap: 60px;
+    padding: 0 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+}
+
+.create-process__img {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    &-circle {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 1px solid $dark-cyan;
+    }
+    &-line {
+        width: 380px;
+        border: 1px solid $pale-orange;
+    }
+}
+
+.create-process__list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.create-process__item {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 30%;
+    justify-content: space-between;
+    height: 250px;
+    &-number {
+        font-size: 60px;
+        font-family: $heading-font;
+        color: $pale-orange;
+    }
+    &-title {
+        @include title-h4;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        width: 150px;
+    }
+    &-description {
+        color: $grey;
+        font-size: 12px;
+        width: 250px;
+        
+    }
+}

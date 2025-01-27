@@ -1,0 +1,29 @@
+@import '../../styles/settings';
+
+.create-header {
+    background: url('../../../public/assets/plan/desktop/image-hero-blackcup.jpg');
+    background-size: cover;
+    height: 450px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-header__content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    color: #fff;
+    width: 1120px;
+    &-title {
+        @include title-h1;
+        color:#fff;
+        width: 500px;
+    }
+    &-description {
+        font-size: 15px;
+        width: 400px;
+        color: #fff;
+    }
+}

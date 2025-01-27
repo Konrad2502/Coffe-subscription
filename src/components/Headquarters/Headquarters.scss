@@ -21,6 +21,7 @@
 .headquarters__item {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 20px;
     width: 200px;
     height: 300px;

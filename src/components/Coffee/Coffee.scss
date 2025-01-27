@@ -1,0 +1,105 @@
+@import '../../styles/settings';
+
+.coffee {
+    width: 1140px;
+    margin: 200px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.coffee__list {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    cursor: pointer;
+    gap: 30px;
+    flex: 0 0 20%;
+   
+}
+
+.coffee__item {
+    border-bottom: 1px solid $grey;
+    padding-bottom: 10px;
+    display: flex;
+    gap: 20px;
+    @include title-h4;
+    color: $grey;
+    transition: color 0.3s ease-in;
+    &:hover {
+        color: $dark-grey-blue;
+    }
+    &--active {
+        color: $dark-cyan;
+    }
+}
+
+.coffee__process {
+    flex: 0 0 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.coffee__choice {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.coffee__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &-name {
+        @include title-h3;
+        color: $grey;
+    }
+    &-arrow {
+        color: $dark-cyan;
+        font-size: 24px;
+        cursor: pointer;
+        transition: transform 0.3s ease-in;
+        &--twist {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.coffee__elements {
+    display: flex;
+    justify-content: space-between;
+    max-height: 500px;
+    transition: max-height 0.3s ease;
+    &--hidden {
+        overflow: hidden;
+        max-height: 0;
+    }
+}
+
+.coffee__option {
+    display: flex;
+    flex-direction: column;
+    background-color: #F4F1EB;
+    width: 220px;
+    height: 250px;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in;
+    &:hover {
+        background-color: $pale-orange;
+    }
+    &-title {
+        @include title-h4;
+        color: $dark-grey-blue;
+    }
+    &-description {
+        color: $grey;
+        width: 130px;
+        
+    }
+}
+
+
+
