@@ -74,6 +74,9 @@
         overflow: hidden;
         max-height: 0;
     }
+    &--disable {
+        display: none;
+    }
 }
 
 .coffee__option {
@@ -99,7 +102,58 @@
         width: 130px;
         
     }
+    &--active {
+        background-color: $dark-cyan;
+        & .coffee__option-title {
+            color: #fff; 
+        }
+
+        & .coffee__option-description {
+            color: #fff; 
+        }
+    }
 }
 
+.coffee__summary {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-top: 50px;
+    &-button {
+        @include button;
+        transition: background-color 0.3s ease-in;
+        align-self: self-end;
+        &:hover {
+        background-color: #66D2CF;
+        }
+    }
+}
+
+.coffee__content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: $dark-grey-blue;
+    height: 200px;
+    
+    gap: 20px;
+    border-radius: 10px;
+    &-title {
+        color: gray;
+        text-transform: uppercase;
+        width: 600px;
+        margin: 0 auto
+    }
+    &-description {
+        @include title-h4;
+        color: #fff;
+        width: 600px;
+        margin: 0 auto;
+        line-height: 40tfrpx;
+        span {
+            color: $dark-cyan;
+        }
+    }
+}
 
 

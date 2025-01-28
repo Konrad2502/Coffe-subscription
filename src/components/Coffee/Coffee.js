@@ -16,6 +16,14 @@ export default function Coffee() {
     deliveries: false,
   });
 
+  const [selectedOptions, setSelectedOptions] = useState({
+    drink: 'Filter',
+    bean: 'Decaf',
+    quantity: '250g',
+    grind: 'Cafetière',
+    delivery: 'Every week',
+  });
+
 
   const preferencesRef = useRef(null);
   const beanTypeRef = useRef(null);
@@ -34,7 +42,13 @@ export default function Coffee() {
       ...prevState,
       [section]: !prevState[section],
     }));
-    console.log(section)
+  };
+
+  const handleOptionSelect = (key, value) => {
+    setSelectedOptions((prevState) => ({
+      ...prevState,
+      [key]: value,
+    }));
   };
 
   return (
@@ -113,7 +127,10 @@ export default function Coffee() {
           <div className={`coffee__elements ${
               toggleState.preferences ? 'coffee__elements--hidden' : ''
             }`}>
-            <div className="coffee__option">
+            <div
+            className={`coffee__option ${selectedOptions.drink === 'Capsule' ? 'coffee__option--active' : ''}`} 
+            onClick={() => handleOptionSelect('drink', 'Capsule')}
+            >
               <h4 className="coffee__option-title">
                 Capsule
               </h4>
@@ -121,7 +138,10 @@ export default function Coffee() {
                 Compatible with Nespresso systems and similar brewers
               </p>
             </div>
-            <div className="coffee__option">
+            <div 
+            className={`coffee__option ${selectedOptions.drink === 'Filter' ? 'coffee__option--active' : ''}`} 
+            onClick={() => handleOptionSelect('drink', 'Filter')}
+            >
               <h4 className="coffee__option-title">
                 Filter
               </h4>
@@ -129,7 +149,10 @@ export default function Coffee() {
                 For pour over or drip methods like Aeropress, Chemex, and V60
               </p>
             </div>
-            <div className="coffee__option">
+            <div 
+            className={`coffee__option ${selectedOptions.drink === 'Espresso' ? 'coffee__option--active' : ''}`} 
+            onClick={() => handleOptionSelect('drink', 'Espresso')}
+            >
               <h4 className="coffee__option-title">
                 Espresso
               </h4>
@@ -153,7 +176,10 @@ export default function Coffee() {
           <div className={`coffee__elements ${
               toggleState.beanType ? 'coffee__elements--hidden' : ''
             }`}>
-            <div className="coffee__option">
+            <div
+             className={`coffee__option ${selectedOptions.bean === 'Single origin' ? 'coffee__option--active' : ''}`} 
+             onClick={() => handleOptionSelect('bean', 'Single origin')}
+            >
               <h4 className="coffee__option-title">
                 Single origin
               </h4>
@@ -161,7 +187,10 @@ export default function Coffee() {
                 Distinct, high quality coffee from a specific family-owned farm
               </p>
             </div>
-            <div className="coffee__option">
+            <div 
+             className={`coffee__option ${selectedOptions.bean === 'Decaf' ? 'coffee__option--active' : ''}`} 
+             onClick={() => handleOptionSelect('bean', 'Decaf')}
+            >
               <h4 className="coffee__option-title">
                 Decaf
               </h4>
@@ -169,7 +198,10 @@ export default function Coffee() {
                 Just like regular coffee, except the caffeine has been removed
               </p>
             </div>
-            <div className="coffee__option">
+            <div
+             className={`coffee__option ${selectedOptions.bean === 'Blended' ? 'coffee__option--active' : ''}`} 
+             onClick={() => handleOptionSelect('bean', 'Blended')}
+            >
               <h4 className="coffee__option-title">
                 Blended
               </h4>
@@ -193,7 +225,10 @@ export default function Coffee() {
           <div className={`coffee__elements ${
               toggleState.quantity ? 'coffee__elements--hidden' : ''
             }`}>
-            <div className="coffee__option">
+            <div 
+             className={`coffee__option ${selectedOptions.quantity === '250g' ? 'coffee__option--active' : ''}`} 
+             onClick={() => handleOptionSelect('quantity', '250g')}
+            >
               <h4 className="coffee__option-title">
                 250g
               </h4>
@@ -201,7 +236,10 @@ export default function Coffee() {
                 Perfect for the solo drinker. Yields about 12 delicious cups
               </p>
             </div>
-            <div className="coffee__option">
+            <div 
+             className={`coffee__option ${selectedOptions.quantity === '500g' ? 'coffee__option--active' : ''}`} 
+             onClick={() => handleOptionSelect('quantity', '500g')}
+            >
               <h4 className="coffee__option-title">
                 500g
               </h4>
@@ -209,7 +247,10 @@ export default function Coffee() {
                 Perfect option for a couple. Yields about 40 delectable cups.
               </p>
             </div>
-            <div className="coffee__option">
+            <div 
+             className={`coffee__option ${selectedOptions.quantity === '1000g' ? 'coffee__option--active' : ''}`} 
+             onClick={() => handleOptionSelect('quantity', '1000g')}
+            >
               <h4 className="coffee__option-title">
                 1000g
               </h4>
@@ -219,7 +260,7 @@ export default function Coffee() {
             </div>
           </div>
         </div>
-        <div className="coffee__choice" ref={grindOptionRef}>
+        <div className='coffee__choice ' ref={grindOptionRef}>
           <div className="coffee__title">
             <h3 className='coffee__title-name'>
               Want us to grind them?
@@ -230,10 +271,13 @@ export default function Coffee() {
               <FontAwesomeIcon icon={faAngleUp} />
             </div>
           </div>
-          <div className={`coffee__elements ${
-              toggleState.grindOption ? 'coffee__elements--hidden' : ''
-            }`}>
-            <div className="coffee__option">
+          <div className={`coffee__elements 
+            ${toggleState.grindOption ? 'coffee__elements--hidden' : ''}
+            ${selectedOptions.drink === 'Capsule' ? 'coffee__elements--disable' : ''}`}>
+            <div 
+             className={`coffee__option ${selectedOptions.grind === 'Wholebean' ? 'coffee__option--active' : ''}`} 
+             onClick={() => handleOptionSelect('grind', 'Wholebean')}
+            >
               <h4 className="coffee__option-title">
                 Wholebean
               </h4>
@@ -241,7 +285,10 @@ export default function Coffee() {
                 Best choice if you cherish the full sensory experience
               </p>
             </div>
-            <div className="coffee__option">
+            <div 
+             className={`coffee__option ${selectedOptions.grind === 'Filter' ? 'coffee__option--active' : ''}`} 
+             onClick={() => handleOptionSelect('grind', 'Filter')}
+           >
               <h4 className="coffee__option-title">
                 Filter
               </h4>
@@ -249,7 +296,10 @@ export default function Coffee() {
                 For drip or pour-over coffee methods such as V60 or Aeropress
               </p>
             </div>
-            <div className="coffee__option">
+            <div 
+             className={`coffee__option ${selectedOptions.grind === 'Cafetière' ? 'coffee__option--active' : ''}`} 
+             onClick={() => handleOptionSelect('grind', 'Cafetière')}
+           >
               <h4 className="coffee__option-title">
                 Cafetiére
               </h4>
@@ -273,7 +323,10 @@ export default function Coffee() {
           <div className={`coffee__elements ${
               toggleState.deliveries ? 'coffee__elements--hidden' : ''
             }`}>
-            <div className="coffee__option">
+            <div 
+            className={`coffee__option ${selectedOptions.delivery === 'Every week' ? 'coffee__option--active' : ''}`} 
+            onClick={() => handleOptionSelect('delivery', 'Every week')}
+            >
               <h4 className="coffee__option-title">
                 Every week
               </h4>
@@ -281,7 +334,10 @@ export default function Coffee() {
                 $14.00 per shipment. Includes free first-class shipping.
               </p>
             </div>
-            <div className="coffee__option">
+            <div 
+            className={`coffee__option ${selectedOptions.delivery === 'Every 2 weeks' ? 'coffee__option--active' : ''}`} 
+            onClick={() => handleOptionSelect('delivery', 'Every 2 weeks')}
+            >
               <h4 className="coffee__option-title">
                 Every 2 weeks
               </h4>
@@ -289,7 +345,10 @@ export default function Coffee() {
                 $17.25 per shipment. Includes free priority shipping.
               </p>
             </div>
-            <div className="coffee__option">
+            <div 
+            className={`coffee__option ${selectedOptions.delivery === 'Every month' ? 'coffee__option--active' : ''}`} 
+            onClick={() => handleOptionSelect('delivery', 'Every month')}
+            >
               <h4 className="coffee__option-title">
                 Every month
               </h4>
@@ -298,6 +357,17 @@ export default function Coffee() {
               </p>
             </div>
           </div>
+        </div>
+        <div className="coffee__summary">
+          <div className="coffee__content">
+              <div className="coffee__content-title">order summary</div>
+              <div className="coffee__content-description">
+                  " I drink my coffee as <span>{selectedOptions.drink }</span>, with a <span>{selectedOptions.bean}</span> type of bean. <span>{selectedOptions.quantity}</span> graund ale <span>{selectedOptions.drink === 'Capsule' ? 'not applicable' : selectedOptions.grind}</span>, sent to me <span>{selectedOptions.delivery}</span> "
+              </div>
+          </div>
+          <button className="coffee__summary-button">
+              Create my plan
+          </button>
         </div>
       </div>
     </div>
