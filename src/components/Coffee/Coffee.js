@@ -7,6 +7,14 @@ import { useState } from 'react';
 
 export default function Coffee() {
 
+  const prices = {
+    '250g': { 'Every week': 7.2, 'Every 2 weeks': 9.6, 'Every month': 12.0 },
+    '500g': { 'Every week': 13.0, 'Every 2 weeks': 17.5, 'Every month': 22.0 },
+    '1000g': { 'Every week': 22.0, 'Every 2 weeks': 32.0, 'Every month': 42.0 }
+  };
+
+ 
+
   const [activeLink, setActiveLink] = useState('');
   const [toggleState, setToggleState] = useState({
     preferences: false,
@@ -31,6 +39,7 @@ export default function Coffee() {
   const grindOptionRef = useRef(null);
   const deliveriesRef = useRef(null);
 
+
   
   const scrollToSection = (ref, linkName) => {
     ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -47,11 +56,12 @@ export default function Coffee() {
   const handleOptionSelect = (key, value) => {
     setSelectedOptions((prevState) => ({
       ...prevState,
-      [key]: value,
+      [key]: value
     }));
   };
 
   return (
+    <>
     <div className='coffee'>
       <ul className="coffee__list">
         <li 
@@ -331,7 +341,7 @@ export default function Coffee() {
                 Every week
               </h4>
               <p className="coffee__option-description">
-                $14.00 per shipment. Includes free first-class shipping.
+              {`$${prices[selectedOptions.quantity]['Every week'].toFixed(2)} per shipment`}. Includes free first-class shipping.
               </p>
             </div>
             <div 
@@ -342,7 +352,7 @@ export default function Coffee() {
                 Every 2 weeks
               </h4>
               <p className="coffee__option-description">
-                $17.25 per shipment. Includes free priority shipping.
+              {`$${prices[selectedOptions.quantity]['Every 2 weeks'].toFixed(2)} per shipment`}. Includes free priority shipping.
               </p>
             </div>
             <div 
@@ -353,7 +363,7 @@ export default function Coffee() {
                 Every month
               </h4>
               <p className="coffee__option-description">
-                $22.50 per shipment. Includes free priority shipping.
+              {`$${prices[selectedOptions.quantity]['Every month'].toFixed(2)} per shipment`}. Includes free priority shipping.
               </p>
             </div>
           </div>
@@ -371,6 +381,27 @@ export default function Coffee() {
         </div>
       </div>
     </div>
+    <div className="popup">
+    <div className="popup__title">
+      <p className="popup__title-header">Order Summary</p>
+    </div>
+    <div className="popup__content">
+      <p className="popup__content-summary">
+      " I drink my coffee as <span>{selectedOptions.drink }</span>, with a <span>{selectedOptions.bean}</span> type of bean. <span>{selectedOptions.quantity}</span> graund ale <span>{selectedOptions.drink === 'Capsule' ? 'not applicable' : selectedOptions.grind}</span>, sent to me <span>{selectedOptions.delivery}</span> "
+      </p>
+      <p className="popup__content-description">
+        Is this correct? You can proceed to checkout or go back to plan selection if something 
+        is off. Subscription discount codes can also be redeemed at the checkout.
+      </p>
+    </div>
+    <div className="popup__price">
+      <div className="popup__price-number">
+        $14.00/mo
+      </div>
+      <button className="popup__price-btn">Checkout</button>
+    </div>
+  </div>
+  </>
   )
 }
 
