@@ -1,0 +1,92 @@
+@import '../../styles/settings';
+
+.popup {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    height: 500px;
+    width: 500px;
+    background-color: $light-cream;
+    border-radius: 10px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    transform: scale(0.5);
+    opacity: 0;
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    &--visible {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.popup__title {
+    height: 20%;
+    background-color: $dark-grey-blue;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    &-header {
+        @include title-h3;
+        color: #fff;
+    }
+}
+
+.popup__content {
+    padding: 0 50px;
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    gap: 20px;
+    color: $grey;
+    &-summary {
+        @include title-h4;
+        color: $grey;
+        span {
+            color: $dark-cyan;
+        }
+    }
+}
+
+.popup__price {
+    display: flex;
+    height: 25%;
+    align-items: center;
+    padding: 0 50px;
+    justify-content: space-between;
+    &-number {
+        flex: 0 0 40%;
+        @include title-h3;
+        color: $dark-grey-blue;
+       
+    }
+    &-btn {
+        @include button;
+        flex: 0 0 45%;
+        transition: background-color 0.3s ease-in;tr
+        &:hover {
+            background-color: #66D2CF;
+        }
+    }
+}
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease-in-out;
+    &--visible {
+        opacity: 1;
+        visibility: visible;
+    }
+  }

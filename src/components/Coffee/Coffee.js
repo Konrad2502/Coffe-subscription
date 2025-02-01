@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import { useRef } from 'react';
 import { useState } from 'react';
+import Popup from '../Popup/Popup';
 
 export default function Coffee() {
 
@@ -32,6 +33,9 @@ export default function Coffee() {
     delivery: 'Every week',
   });
 
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  console.log(isPopupOpen)
+
 
   const preferencesRef = useRef(null);
   const beanTypeRef = useRef(null);
@@ -59,6 +63,10 @@ export default function Coffee() {
       [key]: value
     }));
   };
+
+  const handlePopup = (boolean) => {
+    setIsPopupOpen(boolean)
+  }
 
   return (
     <>
@@ -375,32 +383,21 @@ export default function Coffee() {
                   " I drink my coffee as <span>{selectedOptions.drink }</span>, with a <span>{selectedOptions.bean}</span> type of bean. <span>{selectedOptions.quantity}</span> graund ale <span>{selectedOptions.drink === 'Capsule' ? 'not applicable' : selectedOptions.grind}</span>, sent to me <span>{selectedOptions.delivery}</span> "
               </div>
           </div>
-          <button className="coffee__summary-button">
+          <button 
+          onClick={() => handlePopup(true)}
+          className="coffee__summary-button">
               Create my plan
           </button>
         </div>
       </div>
+     <Popup
+     handlePopup={handlePopup}
+     isPopupOpen={isPopupOpen}
+     selectedOptions={selectedOptions}
+     price={prices[selectedOptions.quantity][selectedOptions.delivery]}
+     />
     </div>
-    <div className="popup">
-    <div className="popup__title">
-      <p className="popup__title-header">Order Summary</p>
-    </div>
-    <div className="popup__content">
-      <p className="popup__content-summary">
-      " I drink my coffee as <span>{selectedOptions.drink }</span>, with a <span>{selectedOptions.bean}</span> type of bean. <span>{selectedOptions.quantity}</span> graund ale <span>{selectedOptions.drink === 'Capsule' ? 'not applicable' : selectedOptions.grind}</span>, sent to me <span>{selectedOptions.delivery}</span> "
-      </p>
-      <p className="popup__content-description">
-        Is this correct? You can proceed to checkout or go back to plan selection if something 
-        is off. Subscription discount codes can also be redeemed at the checkout.
-      </p>
-    </div>
-    <div className="popup__price">
-      <div className="popup__price-number">
-        $14.00/mo
-      </div>
-      <button className="popup__price-btn">Checkout</button>
-    </div>
-  </div>
+    
   </>
   )
 }
