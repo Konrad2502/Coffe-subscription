@@ -1,7 +1,16 @@
 import './Process.scss';
-import React from 'react'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function Process() {
+
+const navigate = useNavigate();
+    
+const handleNavigation = () => {
+      navigate('/create');
+    };
+
   return (
     <div className='process'>
         <div className="process__title">How it works?</div>
@@ -39,7 +48,7 @@ export default function Process() {
                 </p>
             </div>
         </div>
-        <button className="process__button">Create your plan</button>
+        <button onClick={handleNavigation} className="process__button">Create your plan</button>
     </div>
   )
 }

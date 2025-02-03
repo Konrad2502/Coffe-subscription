@@ -15,7 +15,7 @@ export default function Footer() {
         <div className="footer__list">
             <Link to='/' className="footer__list-item">Home</Link>
             <Link to='/about' className="footer__list-item">About us</Link>
-            <div className="footer__list-item">Create your plan</div>
+            <Link to='/create' className="nav__list-item">create your plan</Link>
         </div>
         <div className="footer__icons">
             <FaFacebook className='footer__icons-item'/>
