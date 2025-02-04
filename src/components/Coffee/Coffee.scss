@@ -112,6 +112,10 @@
             color: #fff; 
         }
     }
+    &-capsule {
+        @include title-h4;
+        color: $dark-grey-blue;
+    }
 }
 
 .coffee__summary {
