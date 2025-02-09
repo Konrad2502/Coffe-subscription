@@ -11,7 +11,7 @@ You can view the deployed project here: https://coffee-subscription.netlify.app/
 📸 Preview
 
 Here’s a preview of the Coffee Subscription Website:
-![Coffee Subscription Preview](.public/assets/coffee-subscription.png)
+![Coffee Subscription Preview](public/assets/coffee-subscription.png)
 
 
 Multi-page structure using React Router
