@@ -14,7 +14,7 @@ const handleNavigation = () => {
     <div className="header">
             <div className="header__content">
                 <h2 className="header__content-title">
-                    Great coffe made simple
+                    Great coffee made simple
                 </h2>
                 <p className="header__content-description">
                 Start your mornings with the world’s best coffees. Try our expertly curated artisan 

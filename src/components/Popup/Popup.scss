@@ -90,3 +90,23 @@
         visibility: visible;
     }
   }
+
+  @media(max-width: 576px) {
+    .popup {
+        width: 90%;
+        height: 90%;
+    }
+    .popup__title {
+        padding: 0 30px;
+    }
+    .popup__price {
+        padding: 0 30px;
+        &-number {
+            @include title-h4;
+            color: $dark-grey-blue;
+        }
+    }
+    .popup__content {
+        padding: 0 30px;
+    }
+  }

@@ -68,7 +68,6 @@
 .coffee__elements {
     display: flex;
     justify-content: space-between;
-    max-height: 500px;
     transition: max-height 0.3s ease;
     &--hidden {
         overflow: hidden;
@@ -139,7 +138,6 @@
     flex-direction: column;
     background-color: $dark-grey-blue;
     height: 200px;
-    
     gap: 20px;
     border-radius: 10px;
     &-title {
@@ -160,4 +158,64 @@
     }
 }
 
+@media(max-width: 1280px) {
+    .coffee {
+        width: 100%;
+    }
+}
+
+@media(max-width: 1024px) {
+    .coffee__list {
+        display: none;
+    }
+    .coffee__process {
+        flex: 0 0 100%;
+        padding: 0 50px;
+    }
+}
+
+@media (max-width:768px) {
+    .coffee__option {
+        width: 150px;
+    }
+    .coffee__content {
+        padding: 20px;
+        height: 250px;
+        &-title {
+            width: 100%;
+        }
+        &-description {
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .coffee__elements {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .coffee__option {
+        width: 100%;
+        height: 180px;
+        gap: 10px;
+        &-description {
+            width: 80%;
+        }
+    }
+    .coffee__content {
+        height: auto;
+    }
+    .coffee__summary {
+        &-button {
+            align-self: center;
+        }
+    }
+    .coffee__title {
+        &-name {
+            @include title-h4;
+            color: $grey;
+        }
+    }
+}
 

@@ -12,8 +12,9 @@ export default function CoffeeChoice({
   sectionRef,
   price,
   selectedOptions,
-}) {
-  console.log(selectedKey === "Capsule");
+}) 
+{
+    
   return (
     <div className="coffee__choice" ref={sectionRef}>
       <div className="coffee__title">

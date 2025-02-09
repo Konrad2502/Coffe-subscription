@@ -27,3 +27,33 @@
         color: #fff;
     }
 }
+
+@media(max-width: 1280px) {
+    .create-header {
+        background: url('../../../public/assets/plan/tablet/image-hero-blackcup.jpg');
+        background-size: cover;
+    }
+    .create-header__content {
+        width: 100%;
+        padding: 0 50px;
+    }
+}
+
+@media(max-width: 576px) {
+    .create-header {
+        background: url('../../../public/assets/plan/mobile/image-hero-blackcup.jpg');
+        background-size: cover;
+    }
+    .create-header__content {
+       align-items: center;
+       text-align: center;
+       &-title {
+        @include title-h2;
+        color:#fff;
+        width: 100%;
+       }
+       &-description {
+        width: 100%;
+       }
+    }
+}

@@ -35,3 +35,34 @@
     }
 }
 
+@media(max-width:1280px) {
+    .header {
+        background: url('../../../public/assets/home/tablet/image-hero-coffeepress.jpg');
+        background-size: cover;
+    }
+    .header__content {
+        width: 100%;
+        padding: 0 50px;
+    }
+}
+
+@media(max-width: 576px) {
+    .header {
+        background: url('../../../public/assets/home/mobile/image-hero-coffeepress.jpg');
+        background-size: cover;
+    }
+    .header__content {
+       align-items: center;
+       text-align: center;
+       &-title {
+        @include title-h2;
+        color:#fff;
+        width: 100%;
+       }
+       &-description {
+        width: 100%;
+       }
+    }
+}
+
+

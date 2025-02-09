@@ -16,7 +16,11 @@ export default function Quality() {
             </p>
         </div>
         <div className="quality__picture">
-            <img src="/assets/about/desktop/image-quality.jpg" alt="quality-img" className="quality__picture-img" />
+        <picture>
+        <source media="(max-width: 768px)" srcSet="/assets/about/mobile/image-quality.jpg" />
+        <source media="(max-width: 1280px)" srcSet="/assets/about/tablet/image-quality.jpg" />
+        <img src="/assets/about/desktop/image-quality.jpg" alt="quality-img" className="quality__picture-img" />
+    </picture>
         </div>
     </div>
   )

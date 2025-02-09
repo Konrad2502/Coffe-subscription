@@ -14,7 +14,7 @@ export default function CreateProcess() {
         <div className="create-process__list">
             <div className="create-process__item">
                 <h3 className="create-process__item-number">01</h3>
-                <h4 className="create-process__item-title">Pick your coffe</h4>
+                <h4 className="create-process__item-title">Pick your coffee</h4>
                 <p className="create-process__item-description">
                     Select from our evolving range of artisan coffees. Our beans are ethically 
                     sourced and we pay fair prices for them. There are new coffees in all profiles 

@@ -8,6 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .about-header__content {
@@ -25,5 +26,36 @@
         font-size: 15px;
         width: 400px;
         color: #fff;
+    }
+}
+
+@media (max-width: 1280px) {
+    .about-header {
+        width: 100%;
+        background: url('../../../public/assets/about/tablet/image-hero-whitecup.jpg');
+        background-size: cover;
+    }
+    .about-header__content {
+        width: 100%;
+        padding: 0 50px;
+    }
+}
+
+@media(max-width: 576px) {
+    .about-header {
+        background: url('../../../public/assets/about/mobile/image-hero-whitecup.jpg');
+        background-size: cover;
+    }
+    .about-header__content {
+       align-items: center;
+       text-align: center;
+       &-title {
+        @include title-h2;
+        color:#fff;
+        width: 100%;
+       }
+       &-description {
+        width: 100%;
+       }
     }
 }

@@ -32,3 +32,29 @@
         color: $dark-grey-blue;
     }
 }
+
+@media (max-width: 1280px) {
+    .commitment {
+        width: 100%;
+        padding: 0 50px;
+    }
+}
+
+@media (max-width: 576px) {
+    .commitment {
+        flex-direction: column;
+        height: 900px;
+        
+    }
+    .commitment__content {
+        align-items: center;
+        justify-content: flex-start;
+        margin-top: 10px;
+        &-title {
+            text-align: center;
+        }
+        &-description {
+            text-align: center;
+        }
+    }
+}
